@@ -1,54 +1,633 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>k1fa | 머신비전 & OPTOEX 센서</title>
-<style>
-body {font-family: Arial; margin:0; background:#f5f7fa;}
-header {background:#0b3d91; color:white; padding:20px;}
-section {padding:40px;}
-h1, h2 {margin:0 0 20px;}
-.container {max-width:1000px; margin:auto;}
-.card {background:white; padding:20px; margin:10px 0; border-radius:10px;}
-footer {background:#222; color:#aaa; text-align:center; padding:20px;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>k1fa | 머신비전 & OPTEX 센서 전문 기업</title>
+  <meta name="description" content="k1fa는 머신비전 시스템과 OPTEX 센서를 함께 공급하는 산업 자동화 파트너입니다." />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+      color: #1a1f2b;
+      background: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: #0d1b3d;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 0;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e9f2;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0b3d91;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      color: #25324a;
+    }
+
+    .menu a:hover {
+      color: #0b3d91;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b3d91 0%, #112a62 100%);
+      color: white;
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.2;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.95;
+      margin: 0 0 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #0b3d91;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #ffffff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 18px;
+      padding: 28px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .hero-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 34px;
+      color: #13203a;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #61708a;
+      max-width: 760px;
+      margin: 0 auto 40px;
+      font-size: 17px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(16, 40, 80, 0.07);
+      border: 1px solid #edf1f7;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+      color: #17356d;
+    }
+
+    .card p {
+      margin: 0;
+      color: #5c6880;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e8f0ff;
+      color: #0b3d91;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .dark-section {
+      background: #eef3fb;
+    }
+
+    .products .card {
+      min-height: 220px;
+    }
+
+    .products ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: #5c6880;
+    }
+
+    .solution-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .solution-item {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px;
+      text-align: center;
+      font-weight: 700;
+      color: #1d2c49;
+      box-shadow: 0 8px 22px rgba(16, 40, 80, 0.06);
+      border: 1px solid #edf1f7;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+      margin-top: 0;
+      color: #17356d;
+      font-size: 24px;
+    }
+
+    .info-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(16, 40, 80, 0.06);
+      border: 1px solid #edf1f7;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #13203a;
+    }
+
+    form {
+      background: #fff;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(16, 40, 80, 0.06);
+      border: 1px solid #edf1f7;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #24324c;
+      font-size: 14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d8e0ef;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .submit-btn {
+      background: #0b3d91;
+      color: #fff;
+      border: 0;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.95;
+    }
+
+    footer {
+      background: #0d1b3d;
+      color: rgba(255,255,255,0.8);
+      padding: 28px 0;
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .contact-wrap,
+      .solution-list,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .menu {
+        gap: 14px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 70px 0 50px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        padding: 16px 0;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="topbar">
+    <div class="container">
+      <div>머신비전 시스템 & OPTEX 센서 전문 공급</div>
+      <div>문의: 010-0000-0000 | email@k1fa.co.kr</div>
+    </div>
+  </div>
 
-<header>
-<div class="container">
-<h1>k1fa</h1>
-<p>머신비전 & OPTOEX 센서 전문 기업</p>
-</div>
-</header>
+  <header>
+    <div class="container nav">
+      <div class="logo">k1fa</div>
+      <nav class="menu">
+        <a href="#about">회사소개</a>
+        <a href="#products">제품소개</a>
+        <a href="#solutions">적용분야</a>
+        <a href="#contact">문의하기</a>
+      </nav>
+    </div>
+  </header>
 
-<section>
-<div class="container">
-<h2>회사 소개</h2>
-<div class="card">
-정밀한 검출과 자동화를 위한 머신비전 솔루션을 제공합니다.
-</div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>정밀한 검출과 안정적인 자동화를 위한<br>머신비전 & OPTEX 센서 솔루션</h1>
+        <p>
+          k1fa는 산업 현장에 최적화된 머신비전 시스템과 OPTEX 센서를 공급하며,
+          고객의 검사 공정과 자동화 환경에 적합한 솔루션을 제안합니다.
+        </p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">제품 보기</a>
+          <a href="#contact" class="btn btn-outline">문의하기</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>주요 공급 영역</h3>
+        <ul>
+          <li>머신비전 카메라 및 검사 솔루션</li>
+          <li>산업용 렌즈 · 조명 · 제어기기</li>
+          <li>OPTEX 센서 및 감지 솔루션</li>
+          <li>반도체 · 2차전지 · 물류 · 자동화 라인 적용</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<h2>제품</h2>
-<div class="card">✔ 머신비전 카메라</div>
-<div class="card">✔ 렌즈 / 조명</div>
-<div class="card">✔ OPTOEX 센서</div>
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">회사소개</h2>
+      <p class="section-sub">
+        k1fa는 산업 자동화와 정밀 검출 분야에서 필요한 머신비전 시스템과 센서 제품을 공급하며,
+        고객 현장에 맞춘 제안과 기술 지원을 제공합니다.
+      </p>
 
-<h2>적용 분야</h2>
-<div class="card">반도체 / 2차전지 / 자동화 라인</div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge">전문성</span>
+          <h3>머신비전 중심 공급</h3>
+          <p>검사 공정에 적합한 카메라, 렌즈, 조명, 컨트롤러 구성을 제안합니다.</p>
+        </div>
+        <div class="card">
+          <span class="badge">브랜드</span>
+          <h3>OPTEX 센서 취급</h3>
+          <p>산업용 감지와 검출 환경에 필요한 OPTEX 센서 제품을 함께 공급합니다.</p>
+        </div>
+        <div class="card">
+          <span class="badge">지원</span>
+          <h3>현장 맞춤 대응</h3>
+          <p>단순 제품 판매를 넘어 적용 검토, 제품 선정, 상담까지 함께 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>문의</h2>
-<div class="card">
-📞 010-0000-0000<br>
-📧 email@k1fa.co.kr
-</div>
-</div>
-</section>
+  <section id="products" class="dark-section products">
+    <div class="container">
+      <h2 class="section-title">제품소개</h2>
+      <p class="section-sub">
+        k1fa는 머신비전 구성 요소와 OPTEX 센서를 함께 제공하여
+        검사와 감지 시스템을 통합적으로 제안합니다.
+      </p>
 
-<footer>
-© k1fa All Rights Reserved
-</footer>
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge">Machine Vision</span>
+          <h3>머신비전 시스템</h3>
+          <p>정밀 검사와 자동 판별을 위한 머신비전 구성 제품</p>
+          <ul>
+            <li>산업용 카메라</li>
+            <li>렌즈 및 조명</li>
+            <li>비전 컨트롤러</li>
+            <li>검사 공정용 시스템 제안</li>
+          </ul>
+        </div>
 
+        <div class="card">
+          <span class="badge">OPTEX</span>
+          <h3>OPTEX 센서</h3>
+          <p>다양한 산업 환경에 대응하는 감지 및 검출 센서 제품</p>
+          <ul>
+            <li>광전 센서</li>
+            <li>변위 · 거리 감지 센서</li>
+            <li>자동화 라인 검출 솔루션</li>
+            <li>산업용 센서 적용 제안</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solutions">
+    <div class="container">
+      <h2 class="section-title">적용분야</h2>
+      <p class="section-sub">
+        다양한 제조 및 자동화 현장에서 검사, 검출, 판별, 감지 시스템에 적용할 수 있습니다.
+      </p>
+
+      <div class="solution-list">
+        <div class="solution-item">반도체</div>
+        <div class="solution-item">2차전지</div>
+        <div class="solution-item">자동차 부품</div>
+        <div class="solution-item">포장 · 물류</div>
+        <div class="solution-item">전자 부품</div>
+        <div class="solution-item">조립 자동화</div>
+        <div class="solution-item">품질 검사</div>
+        <div class="solution-item">라인 감지</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="dark-section">
+    <div class="container">
+      <h2 class="section-title">문의하기</h2>
+      <p class="section-sub">
+        제품 상담, 적용 검토, 견적 문의가 필요하시면 아래 내용을 남겨주세요.
+      </p>
+
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <div class="info-box">
+            <h3>연락처 안내</h3>
+            <strong>전화</strong>
+            <div>031-749-9091</div>
+            <br />
+            <strong>이메일</strong>
+            <div>khs1014@naver.com</div>
+          </div>
+
+          <div class="info-box">
+            <h3>상담 가능 내용</h3>
+            <div>머신비전 제품 선정</div>
+            <div>OPTEX 센서 상담</div>
+            <div>자동화 라인 적용 검토</div>
+            <div>견적 및 납기 문의</div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form onsubmit="sendInquiry(event)">
+            <h3>문의 폼</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required />
+              </div>
+              <div class="form-group">
+                <label for="company">회사명</label>
+                <input type="text" id="company" name="company" placeholder="회사명을 입력하세요" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">연락처</label>
+                <input type="text" id="phone" name="phone" placeholder="연락처를 입력하세요" />
+              </div>
+              <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="product">관심 제품</label>
+              <select id="product" name="product">
+                <option>머신비전 시스템</option>
+                <option>OPTEX 센서</option>
+                <option>비전 카메라</option>
+                <option>렌즈 / 조명</option>
+                <option>기타 문의</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">문의 내용</label>
+              <textarea id="message" name="message" placeholder="문의 내용을 입력하세요" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">문의 메일 작성</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© k1fa All Rights Reserved.</div>
+      <div>머신비전 시스템 · OPTEX 센서 · 산업 자동화 솔루션</div>
+    </div>
+  </footer>
+
+  <script>
+    function sendInquiry(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const company = document.getElementById('company').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const product = document.getElementById('product').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent('[k1fa 문의] ' + name + ' / ' + product);
+      const body = encodeURIComponent(
+        '이름: ' + name + '\n' +
+        '회사명: ' + company + '\n' +
+        '연락처: ' + phone + '\n' +
+        '이메일: ' + email + '\n' +
+        '관심 제품: ' + product + '\n\n' +
+        '문의 내용:\n' + message
+      );
+
+      window.location.href = 'mailto:email@k1fa.co.kr?subject=' + subject + '&body=' + body;
+    }
+  </script>
 </body>
 </html>
