@@ -550,7 +550,8 @@
         </div>
 
         <div class="contact-form">
-          <form onsubmit="sendInquiry(event)">
+        <form name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact" />
             <h3>문의 폼</h3>
 
             <div class="form-row">
@@ -605,28 +606,9 @@
     </div>
   </footer>
 
-  <script>
-    function sendInquiry(event) {
-      event.preventDefault();
+  
 
-      const name = document.getElementById('name').value;
-      const company = document.getElementById('company').value;
-      const phone = document.getElementById('phone').value;
-      const email = document.getElementById('email').value;
-      const product = document.getElementById('product').value;
-      const message = document.getElementById('message').value;
-
-      const subject = encodeURIComponent('[k1fa 문의] ' + name + ' / ' + product);
-      const body = encodeURIComponent(
-        '이름: ' + name + '\n' +
-        '회사명: ' + company + '\n' +
-        '연락처: ' + phone + '\n' +
-        '이메일: ' + email + '\n' +
-        '관심 제품: ' + product + '\n\n' +
-        '문의 내용:\n' + message
-      );
-
-      window.location.href = 'mailto:info@k1fa.co.kr?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:info@k1fa.com?subject=' + subject + '&body=' + body;
     }
   </script>
 </body>
